@@ -1,24 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+
+import React , {useState} from "react";
+import 'bootstrap/dist/css/bootstrap.min.css';
+// import {Button} from 'react-bootstrap';
+import ToDoForm from './todo-form/form';
+import TasksTable from "./tasks/tasks";
+
+
 
 function App() {
+  const [task,setTask]= useState({
+    name:null,
+    status:false
+  });
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <section className="App container py-5">
+      {/* <Button variant="success">Success</Button> */}
+      
+      <ToDoForm />
+      <TasksTable />
+
+    </section>
   );
 }
 
