@@ -6,12 +6,14 @@ import UpdateForm from "./todo-form/updateForm";
 import TasksTable from "./tasks/tasks";
 
 function App() {
+  // set state
   const [task, setTask] = useState({
     taskList: [],
     showError: null,
     updatedValue: "",
     showForm: true,
   });
+  // add new task
   const handleAddTask = (e) => {
     e.preventDefault();
     const tasks = task.taskList;
@@ -35,6 +37,7 @@ function App() {
       });
     }
   };
+  // handle done tasks
   const handleDone = (id) => {
     const tasks = task.taskList;
     tasks[id].status = true;
@@ -45,6 +48,7 @@ function App() {
       showForm: true,
     });
   };
+  // delete task from the list
   const handleDelete = (id) => {
     const tasks = task.taskList;
     tasks.splice(id, 1);
@@ -55,6 +59,7 @@ function App() {
       showError: null,
     });
   };
+  // get id of updated task
   const handleUpdate = (id) => {
     const tasks = task.taskList;
     setTask({
@@ -65,6 +70,7 @@ function App() {
       id: id
     });
   };
+  // update choosen task
   const handleUpdatedTask = (e) => {
     e.preventDefault();
     const tasks = task.taskList;
